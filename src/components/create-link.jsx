@@ -36,11 +36,11 @@ export default function CreateLink() {
   });
 
   const schema = yup.object().shape({
-    title: yup.string().required("Title is required"),
+    title: yup.string().required("* Title is required"),
     longUrl: yup
       .string()
-      .url("Must be a valid URL")
-      .required("Long URL is required"),
+      .url("* Must be a valid URL")
+      .required("* Long URL is required"),
     customUrl: yup.string(),
   });
 
@@ -96,9 +96,11 @@ export default function CreateLink() {
         <Button variant="destructive">Create New Link</Button>
       </DialogTrigger>
 
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="max-w-[300px] sm:max-w-md">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold">Create New</DialogTitle>
+          <DialogTitle className="mb-3 text-2xl font-bold">
+            Create New
+          </DialogTitle>
         </DialogHeader>
 
         {formValues?.longUrl && (
@@ -127,10 +129,10 @@ export default function CreateLink() {
         />
         {errors.longUrl && <Error message={errors.longUrl} />}
 
-        <div className="flex items-center gap-2">
-          <Card className="p-2 font-medium text-blue-500 border-0">
+        <div className="flex items-center gap-1">
+          <Card className="p-1 font-medium text-blue-500 border-0">
             trimrr.in
-          </Card>{" "}
+          </Card>
           /
           <Input
             id="customUrl"

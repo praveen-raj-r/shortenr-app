@@ -41,21 +41,25 @@ function Dashboard() {
       {(loading || loadingClicks) && (
         <BarLoader width={"100%"} color="#36d7b7" />
       )}
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid gap-4 sm:grid-cols-2">
         <Card>
           <CardHeader>
-            <CardTitle>Links Created</CardTitle>
+            <CardTitle className="text-lg tracking-wider sm:text-xl">
+              Links Created
+            </CardTitle>
           </CardHeader>
           <CardContent>
-            <p>{urls?.length}</p>
+            <p className="text-3xl">{urls?.length}</p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle>Total Click</CardTitle>
+            <CardTitle className="text-lg tracking-wider sm:text-xl">
+              Total Click
+            </CardTitle>
           </CardHeader>
           <CardContent>
-            <p>{clicks?.length}</p>
+            <p className="text-3xl">{clicks?.length}</p>
           </CardContent>
         </Card>
       </div>

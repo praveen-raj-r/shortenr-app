@@ -30,6 +30,7 @@ const LinkPage = () => {
     // Remove the anchor from the document
     document.body.removeChild(anchor);
   };
+
   const navigate = useNavigate();
   const { user } = UrlState();
   const { id } = useParams();
@@ -70,30 +71,39 @@ const LinkPage = () => {
       {(loading || loadingStats) && (
         <BarLoader className="mb-4" width={"100%"} color="#36d7b7" />
       )}
-      <div className="flex flex-col justify-between gap-8 sm:flex-row">
-        <div className="flex flex-col items-start gap-8 rounded-lg sm:w-2/5">
-          <span className="text-6xl font-extrabold cursor-pointer hover:underline">
-            {url?.title}
-          </span>
-          <a
-            href={`https://trimrr.in/${link}`}
-            target="_blank"
-            className="text-3xl font-bold text-blue-400 cursor-pointer sm:text-4xl hover:underline"
-          >
-            https://trimrr.in/{link}
-          </a>
-          <a
-            href={url?.original_url}
-            target="_blank"
-            className="flex items-center gap-1 cursor-pointer hover:underline"
-          >
-            <LinkIcon className="p-1" />
-            {url?.original_url}
-          </a>
-          <span className="flex items-end text-sm font-extralight">
-            {new Date(url?.created_at).toLocaleString()}
-          </span>
-          <div className="flex gap-2">
+      <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-5 p-4 bg-gray-900 border rounded-lg sm:flex-row">
+          <img
+            src={url?.qr}
+            className="self-start object-contain min-[400px]:h-32 ring ring-blue-500"
+            alt="qr code"
+          />
+
+          <div className="flex flex-col flex-1 space-y-3">
+            <span className="text-3xl font-semibold tracking-wide cursor-pointer hover:underline">
+              {url?.title}
+            </span>
+            <a
+              href={`https://trimrr.in/${link}`}
+              target="_blank"
+              className="text-lg font-bold text-blue-400 cursor-pointer sm:text-2xl hover:underline"
+            >
+              https://trimrr.in/{link}
+            </a>
+            <a
+              href={url?.original_url}
+              target="_blank"
+              className="flex items-center gap-1 cursor-pointer hover:underline"
+            >
+              <LinkIcon className="p-1" />
+              {url?.original_url}
+            </a>
+            <span className="flex items-end text-sm font-extralight">
+              {new Date(url?.created_at).toLocaleString()}
+            </span>
+          </div>
+
+          <div className="flex justify-between gap-2 mt-5 sm:flex-col sm:mt-0">
             <Button
               variant="ghost"
               onClick={() =>
@@ -121,14 +131,9 @@ const LinkPage = () => {
               )}
             </Button>
           </div>
-          <img
-            src={url?.qr}
-            className="self-center object-contain w-full p-1 sm:self-start ring ring-blue-500"
-            alt="qr code"
-          />
         </div>
 
-        <Card className="sm:w-3/5">
+        <Card>
           <CardHeader>
             <CardTitle className="text-4xl font-extrabold">Stats</CardTitle>
           </CardHeader>
