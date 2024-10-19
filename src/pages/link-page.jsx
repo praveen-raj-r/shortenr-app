@@ -138,7 +138,7 @@ const LinkPage = () => {
             <CardTitle className="text-4xl font-extrabold">Stats</CardTitle>
           </CardHeader>
           {stats && stats.length ? (
-            <CardContent className="flex flex-col gap-6">
+            <CardContent className="flex flex-col gap-6 p-4 sm:p-6">
               <Card>
                 <CardHeader>
                   <CardTitle>Total Clicks</CardTitle>
@@ -148,9 +148,13 @@ const LinkPage = () => {
                 </CardContent>
               </Card>
 
-              <CardTitle>Location Data</CardTitle>
+              <CardTitle className="my-3 text-center sm:my-0 sm:text-left">
+                Location Data
+              </CardTitle>
               <LocationStats stats={stats} />
-              <CardTitle>Device Info</CardTitle>
+              <CardTitle className="my-3 text-center sm:my-0 sm:text-left">
+                Device Info
+              </CardTitle>
               <DeviceStats stats={stats} />
             </CardContent>
           ) : (
