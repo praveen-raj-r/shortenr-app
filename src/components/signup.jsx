@@ -51,14 +51,14 @@ const Signup = () => {
     setErrors([]);
     try {
       const schema = Yup.object().shape({
-        name: Yup.string().required("Name is required"),
+        name: Yup.string().required("* Name is required"),
         email: Yup.string()
-          .email("Invalid email")
-          .required("Email is required"),
+          .email("* Invalid email")
+          .required("* Email is required"),
         password: Yup.string()
-          .min(6, "Password must be at least 6 characters")
-          .required("Password is required"),
-        profile_pic: Yup.mixed().required("Profile picture is required"),
+          .min(6, "* Password must be at least 6 characters")
+          .required("* Password is required"),
+        profile_pic: Yup.mixed().required("* Profile picture is required"),
       });
 
       await schema.validate(formData, { abortEarly: false });
@@ -86,8 +86,8 @@ const Signup = () => {
         </CardDescription>
         {error && <Error message={error?.message} />}
       </CardHeader>
-      <CardContent className="space-y-2">
-        <div className="space-y-1">
+      <CardContent className="space-y-4">
+        <div>
           <Input
             name="name"
             type="text"
@@ -96,7 +96,7 @@ const Signup = () => {
           />
         </div>
         {errors.name && <Error message={errors.name} />}
-        <div className="space-y-1">
+        <div>
           <Input
             name="email"
             type="email"
@@ -105,7 +105,7 @@ const Signup = () => {
           />
         </div>
         {errors.email && <Error message={errors.email} />}
-        <div className="space-y-1">
+        <div>
           <Input
             name="password"
             type="password"
@@ -114,8 +114,8 @@ const Signup = () => {
           />
         </div>
         {errors.password && <Error message={errors.password} />}
-        <div className="space-y-1">
-          <input
+        <div>
+          <Input
             name="profile_pic"
             type="file"
             accept="image/*"

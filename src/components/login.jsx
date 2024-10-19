@@ -53,11 +53,11 @@ const Login = () => {
     try {
       const schema = Yup.object().shape({
         email: Yup.string()
-          .email("Invalid email")
-          .required("Email is required"),
+          .email("* Invalid email")
+          .required("* Email is required"),
         password: Yup.string()
-          .min(6, "Password must be at least 6 characters")
-          .required("Password is required"),
+          .min(6, "* Password must be at least 6 characters")
+          .required("* Password is required"),
       });
 
       await schema.validate(formData, { abortEarly: false });
