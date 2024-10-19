@@ -60,8 +60,8 @@ function Dashboard() {
         </Card>
       </div>
 
-      <div className="flex justify-between">
-        <h1 className="text-4xl font-extrabold">My Links</h1>
+      <div className="flex items-center justify-between">
+        <h1 className="m-0 text-lg font-extrabold sm:text-4xl">My Links</h1>
         <CreateLink />
       </div>
 

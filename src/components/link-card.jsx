@@ -29,18 +29,18 @@ function LinkCard({ url, fetchUrls }) {
   const { loading: loadingDelete, fn: fnDelete } = useFetch(deleteUrl, url.id);
 
   return (
-    <div className="flex flex-col gap-5 p-4 bg-gray-900 border rounded-lg md:flex-row">
+    <div className="flex flex-col gap-5 p-4 bg-gray-900 border rounded-lg sm:flex-row">
       <img
         src={url?.qr}
-        className="self-start object-contain h-32 ring ring-blue-500"
+        className="self-start object-contain min-[400px]:h-32 ring ring-blue-500"
         alt="qr code"
       />
 
-      <Link to={`/link/${url?.id}`} className="flex flex-col flex-1">
-        <span className="text-3xl font-extrabold cursor-pointer hover:underline">
+      <Link to={`/link/${url?.id}`} className="flex flex-col flex-1 space-y-3">
+        <span className="text-3xl font-semibold tracking-wide cursor-pointer hover:underline">
           {url?.title}
         </span>
-        <span className="text-2xl font-bold text-blue-400 cursor-pointer hover:underline">
+        <span className="text-lg font-bold text-blue-400 cursor-pointer sm:text-2xl hover:underline">
           https://trimrr.in/{url?.custom_url ? url?.custom_url : url.short_url}
         </span>
         <span className="flex items-center gap-1 cursor-pointer hover:underline">
@@ -52,7 +52,7 @@ function LinkCard({ url, fetchUrls }) {
         </span>
       </Link>
 
-      <div className="flex flex-col gap-2">
+      <div className="flex justify-between gap-2 mt-5 sm:flex-col sm:mt-0">
         <Button
           variant="ghost"
           onClick={() =>
