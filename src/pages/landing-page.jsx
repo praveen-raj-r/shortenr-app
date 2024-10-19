@@ -30,7 +30,7 @@ function LandingPage() {
         <Input
           value={longUrl}
           onChange={(e) => setLongUrl(e.target.value)}
-          className="flex-1 h-full px-4 py-4"
+          className="flex-1 h-full px-4 py-4 text-black bg-white placeholder:text-black sm:text-xl"
           type="url"
           placeholder="Enter your looong URL"
         />
