@@ -131,7 +131,7 @@ export default function CreateLink() {
 
         <div className="flex items-center gap-1">
           <Card className="p-1 font-medium text-blue-500 border-0">
-            trimrr.in
+            shortenr.in
           </Card>
           /
           <Input

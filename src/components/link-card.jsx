@@ -41,7 +41,8 @@ function LinkCard({ url, fetchUrls }) {
           {url?.title}
         </span>
         <span className="text-lg font-bold text-blue-400 cursor-pointer sm:text-2xl hover:underline">
-          https://trimrr.in/{url?.custom_url ? url?.custom_url : url.short_url}
+          https://shortenr.in/
+          {url?.custom_url ? url?.custom_url : url.short_url}
         </span>
         <span className="flex items-center gap-1 cursor-pointer hover:underline">
           <LinkIcon className="p-1" />
@@ -56,7 +57,9 @@ function LinkCard({ url, fetchUrls }) {
         <Button
           variant="ghost"
           onClick={() =>
-            navigator.clipboard.writeText(`https://trimrr.in/${url?.short_url}`)
+            navigator.clipboard.writeText(
+              `https://shortenr.in/${url?.short_url}`
+            )
           }
         >
           <Copy />
